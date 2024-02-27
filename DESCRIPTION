@@ -1,0 +1,53 @@
+Encoding: UTF-8
+Type: Package
+Package: susieR_nowarning
+Title: Sum of Single Effects Linear Regression (Removing WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2)
+Description: Implements methods for variable selection in linear
+    regression based on the "Sum of Single Effects" (SuSiE) model, as
+    described in Wang et al (2020) <DOI:10.1101/501114> and Zou et al
+    (2021) <DOI:10.1101/2021.11.03.467167>. These methods provide
+    simple summaries, called "Credible Sets", for accurately
+    quantifying uncertainty in which variables should be selected.
+    The methods are motivated by genetic fine-mapping applications,
+    and are particularly well-suited to settings where variables are
+    highly correlated and detectable effects are sparse. The fitting
+    algorithm, a Bayesian analogue of stepwise selection methods
+    called "Iterative Bayesian Stepwise Selection" (IBSS), is simple
+    and fast, allowing the SuSiE model be fit to large data sets
+    (thousands of samples and hundreds of thousands of variables).
+Date: 2023-10-04
+Version: 0.12.40
+Authors@R: c(person("Gao","Wang",role="aut",email="wang.gao@columbia.edu"),
+             person("Yuxin","Zou",role="aut"),
+             person("Kaiqian","Zhang",role="aut"),
+             person("Peter","Carbonetto",role=c("aut","cre"),
+                    email="peter.carbonetto@gmail.com"),
+	     person("Matthew","Stephens",role="aut"))
+URL: https://github.com/stephenslab/susieR
+BugReports: https://github.com/stephenslab/susieR/issues
+License: BSD_3_clause + file LICENSE
+Depends: R (>= 3.0.0)
+Imports:
+    methods,
+    graphics,
+    grDevices,
+    stats,
+    Matrix,
+    matrixStats,
+    mixsqp,
+    reshape,
+    crayon,
+    ggplot2
+Suggests:
+    curl,
+    testthat,
+    microbenchmark,
+    knitr,
+    rmarkdown,
+    Rfast,
+    cowplot
+LazyData: yes
+LazyDataCompression: xz
+NeedsCompilation: no
+RoxygenNote: 7.3.1
+VignetteBuilder: knitr
