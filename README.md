@@ -1,99 +1,48 @@
-# susieR
+# susieR_nowarning
+This R package is a modified clone of the original susieR R package, available at https://github.com/stephenslab/susieR. It specifically removes the warning message "WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2". The primary reason for this modification is to enhance the user experience in projects where susieR is applied iteratively, as this warning can be repeatedly displayed under such circumstances, potentially cluttering the output and distracting the users. In particular, such warning information will still be shown even though XtX is symmetric, as discussed in https://github.com/stephenslab/susieR/issues/152.
 
-[![CRAN status badge](https://www.r-pkg.org/badges/version/susieR)](https://cran.r-project.org/package=susieR)
-[![Travis Build Status](https://travis-ci.org/stephenslab/susieR.svg?branch=master)](https://travis-ci.org/stephenslab/susieR)
-[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/tcgeqxd8q8krija6?svg=true)](https://ci.appveyor.com/project/pcarbo/susier)
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/stephenslab/susieR/tree/master.svg?style=svg)](https://app.circleci.com/pipelines/github/stephenslab/susieR?branch=master)
-[![codecov](https://codecov.io/gh/stephenslab/susieR/branch/master/graph/badge.svg)](https://app.codecov.io/gh/stephenslab/susieR)
+The decision to remove this warning stems from observations in various projects that apply susieR in an iterative manner. In these scenarios, the repeated appearance of the warning message does not contribute to the analysis but rather, it may interfere with the user's ability to quickly assess the output of their computations. By eliminating this warning, the package aims to provide a cleaner interface, allowing users to focus on the essential results of their analysis without unnecessary interruptions.
 
-The `susieR` package implements a simple new way to perform variable
-selection in multiple regression ($y=Xb+e$). The methods implemented
-here are particularly well-suited to settings where some of the X
-variables are highly correlated, and the true effects are highly
-sparse (e.g. <20 non-zero effects in the vector $b$).  One example of
-this is genetic fine-mapping applications, and this application was a
-major motivation for developing these methods. However, the methods
-should also be useful more generally.
+An example is shown below:
 
-The methods are based on a new model for sparse multiple regression,
-which we call the "Sum of Single Effects" (SuSiE) model.  This model,
-which will be described in a manuscript in preparation (Wang et al),
-lends itself to a particularly simple and intuitive fitting procedure
--- effectively a Bayesian modification of simple forward selection,
-which we call "Iterative Bayesian Step-wise Selection".
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-The output of the fitting procedure is a number of "Credible Sets"
-(CSs), which are each designed to have high probability to contain a
-variable with non-zero effect, while at the same time being as small
-as possible. You can think of the CSs as being a set of "highly
-correlated" variables that are each associated with the response: you
-can be confident that one of the variables has a non-zero coefficient,
-but they are too correlated to be sure which one.
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-The package is developed by Gao Wang, Peter Carbonetto, Yuxin Zou,
-Kaiqian Zhang, and Matthew Stephens from the
-[Stephens Lab](https://stephenslab.uchicago.edu) at the University of
-Chicago.
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-Please
-[post issues](https://github.com/stephenslab/susieR/issues) to ask
-questions, get our support or provide us feedback; please
-[send pull requests](https://github.com/stephenslab/susieR/pulls) if
-you have helped fixing bugs or making improvements to the source code.
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-## Quick Start
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-Install susieR from [CRAN](https://cran.r-project.org/package=susieR):
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-```R
-install.packages("susieR")
-```
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-Alternatively, install the latest development version of `susieR`
-from GitHub:
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-```R
-# install.packages("remotes")
-remotes::install_github("stephenslab/susieR")
-```
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-See [here](https://stephenslab.github.io/susieR/articles/mwe.html) for
-a brief illustration of `susieR`. For more documentation and examples
-please visit https://stephenslab.github.io/susieR
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-## Citing this work
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-If you find the `susieR` package or any of the source code in this
-repository useful for your work, please cite:
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-> G. Wang, G., Sarkar, A., Carbonetto, P. & Stephens, M. (2020). A
-> simple new approach to variable selection in regression, with
-> application to genetic fine mapping. *Journal of the Royal
-> Statistical Society, Series B* **82**, 1273–1300.
-> https://doi.org/10.1111/rssb.12388
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-If you use any of the summary data methods such as `susie_suff_stat`
-or `susie_rss`, please also cite:
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-> Zou, Y., Carbonetto, P., Wang, G. & Stephens, M. (2022). Fine-mapping
-> from summary data with the "Sum of Single Effects" model. *PLoS
-> Genetics* **18**, e1010299. https://doi.org/10.1371/journal.pgen.1010299
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-## Developer notes
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-+ When any changes are made to `roxygen2` markup, run
-`devtools::document()` to update package `NAMESPACE` and documentation
-files.
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-+ Run `pkgdown::build_site()` to build the website. Getting `pkgdown`
-to work properly can be frustrating due to numerous & fragile dependencies.
-If `pkgdown` does not work for you out of the box you can use this `docker`
-command to run all vignettes and build the site:
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-```bash
-docker run --rm --security-opt label:disable -t -P -w $PWD -v $PWD:$PWD \
-  -u $UID:${GROUPS[0]} -e HOME=/home/$USER -e USER=$USER gaow/susie \
-  R --slave -e "pkgdown::build_site(lazy=TRUE, examples=FALSE)"
-```
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
 
-[susie-preprint]: https://doi.org/10.1101/501114
+WARNING: XtX is not symmetric; forcing XtX to be symmetric by replacing XtX with (XtX + t(XtX))/2
+
+
